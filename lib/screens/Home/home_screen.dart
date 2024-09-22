@@ -16,9 +16,18 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentSlider = 0;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    List<List<Product>> selectCategories = [
+      all,
+      shoes,
+      beauty,
+      womenFashion,
+      jewelry,
+      menFashion
+    ];
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -44,7 +53,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     }),
                 const SizedBox(height: 20),
                 // Categories
-                const Categories(),
+                Categories(
+                  selectedIndex: selectedIndex,
+                  onChange: (index) {
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                  },
+                ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -71,10 +87,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             childAspectRatio: 0.8,
                             crossAxisSpacing: 20,
                             mainAxisSpacing: 20),
-                    itemCount: products.length,
+                    itemCount: selectCategories[selectedIndex].length,
                     itemBuilder: (context, index) {
                       return ProductCard(
-                        product: products[index],
+                        product: selectCategories[selectedIndex][index],
                       );
                     })
               ],

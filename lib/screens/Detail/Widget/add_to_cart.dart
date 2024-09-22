@@ -1,3 +1,4 @@
+import 'package:app_shop/Provider/cart_provider.dart';
 import 'package:app_shop/constains.dart';
 import 'package:app_shop/models/product_model.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ class _AddToCartState extends State<AddToCart> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = CartProvider.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
@@ -71,7 +73,20 @@ class _AddToCartState extends State<AddToCart> {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                provider.toggleProductCart(widget.product);
+                const snackBar = SnackBar(
+                  content: Text(
+                    "Successfully added!!!",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: Colors.white),
+                  ),
+                  duration: Duration(seconds: 1),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              },
               child: Container(
                 height: 45,
                 alignment: Alignment.center,

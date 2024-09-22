@@ -1,6 +1,8 @@
 import 'package:app_shop/constains.dart';
+import 'package:app_shop/screens/Cart/cart_screen.dart';
 import 'package:app_shop/screens/Favorite/favorite_screen.dart';
 import 'package:app_shop/screens/Home/home_screen.dart';
+import 'package:app_shop/screens/Profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -11,15 +13,18 @@ class BottomNavBar extends StatefulWidget {
     return _BottomNavBarState();
   }
 }
+
 class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 2;
   List screens = const [
     Scaffold(),
     FavoriteScreen(),
     HomeScreen(),
-    Scaffold(),
+    CartScreen(),
+    ProfileScreen(),
     Scaffold(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +64,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   Icons.grid_view_outlined,
                   size: 30,
                   color:
-                      currentIndex == 0 ? kprimaryColor : Colors.grey.shade400,
+                  currentIndex == 0 ? kprimaryColor : Colors.grey.shade400,
                 )),
             IconButton(
                 onPressed: () {
@@ -71,7 +76,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   Icons.favorite_border,
                   size: 30,
                   color:
-                      currentIndex == 1 ? kprimaryColor : Colors.grey.shade400,
+                  currentIndex == 1 ? kprimaryColor : Colors.grey.shade400,
                 )),
             const SizedBox(
               width: 10,
@@ -86,7 +91,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   Icons.shopping_cart_outlined,
                   size: 30,
                   color:
-                      currentIndex == 3 ? kprimaryColor : Colors.grey.shade400,
+                  currentIndex == 3 ? kprimaryColor : Colors.grey.shade400,
                 )),
             IconButton(
                 onPressed: () {
@@ -98,11 +103,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   Icons.person,
                   size: 30,
                   color:
-                      currentIndex == 4 ? kprimaryColor : Colors.grey.shade400,
+                  currentIndex == 4 ? kprimaryColor : Colors.grey.shade400,
                 ))
           ],
         ),
-      ),body: screens[currentIndex],
+      ), body: screens[currentIndex],
     );
   }
 }

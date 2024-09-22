@@ -26,7 +26,7 @@ class Product {
     required this.quantity,
   });
 }
-final List<Product> products = [
+final List<Product> all = [
   Product(
     title: "Wireless Headphones",
     description:
