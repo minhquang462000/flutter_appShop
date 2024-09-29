@@ -48,7 +48,7 @@ class ProductItemDisplay extends StatelessWidget {
                     height: 140,
                     child: Image.asset(
                       product.image,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),

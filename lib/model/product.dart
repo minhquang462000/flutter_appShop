@@ -118,7 +118,7 @@ List<Grocery> groceryItems = [
   ),
   Grocery(
     category: 'Meat',
-    image: 'assets/grocery/kfc chicken.png',
+    image: 'assets/grocery/kfc_chicken.png',
     isRecent: false,
     description: description,
     name: 'KFC Chicken',
@@ -128,7 +128,7 @@ List<Grocery> groceryItems = [
   ),
   Grocery(
     category: 'Dairy',
-    image: 'assets/grocery/melon.png',
+    image: 'assets/grocery/paneer.png',
     isRecent: false,
     description: description,
     name: 'Paneer',
